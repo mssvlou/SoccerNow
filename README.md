@@ -26,7 +26,7 @@ Desenvolver um sistema de gestão de jogos e torneios de futsal, maioritariament
 
 ## Execução
 - **Backend** (necessário ter o Docker Desktop a correr): `bash SoccerNow/run.sh`
-- **Acesso à interface nativa:** `mvn javafx:run`
+- **Acesso à interface nativa:** `mvn -f JavaFX/pom.xml javafx:run`
 - **Acesso à interface web:** http://localhost:8080
 
 ## Tecnologias usadas
