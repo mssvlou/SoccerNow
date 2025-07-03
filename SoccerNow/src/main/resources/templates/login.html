@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout(~{::section})}">
+
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <section>
+        <h1>Login</h1>
+
+        <div th:if="${erro}">
+            <p style="color:red;" th:text="${erro}"></p>
+        </div>
+
+        <form th:action="@{/login}" method="post">
+            <label>Email:
+                <input type="text" name="email" required/>
+            </label><br/>
+            <label>Password:
+                <input type="text" name="password"/>
+            </label><br/>
+            <button type="submit">Entrar</button>
+        </form>
+    </section>
+</body>
+</html>

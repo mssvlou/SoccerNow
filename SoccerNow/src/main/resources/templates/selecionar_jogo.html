@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout(~{::section})}">
+
+<body>
+    <section>
+        <form th:action="@{/jogos/selecionar}" method="get">
+            <label><b>Escolher Jogo:</b></label><br />
+            <select name="jogoID">
+                <option th:each="jogo : ${jogos}" th:value="${jogo.id}" th:selected="${jogo.id == jogoSelecionado?.id}"
+                    th:text="${equipas[jogo.equipaIDs[0]] + ' vs ' + equipas[jogo.equipaIDs[1]] + ' ' + jogo.data}">Jogo
+                </option>
+            </select>
+
+            <button type="submit">Selecionar</button>
+        </form>
+
+        <div th:if="${jogoSelecionado != null}">
+            <form th:action="@{/jogos/registar}" method="post">
+                <input type="hidden" name="jogoID" th:value="${jogoSelecionado.id}" />
+
+                <div>
+                    <h4>Jogadores de <span th:text="${equipas[jogoSelecionado.equipaIDs[0]]}"></span></h4>
+
+                    <ul>
+                        <li th:each="j : ${jogadoresEquipa1}">
+                            <span th:text="${j.nome}"></span>
+
+                            <label>Golos:</label>
+                            <input type="number" min="0" th:name="'golos[' + ${j.id} + ']'" value="0" />
+
+                            <label>Cartão:</label>
+                            <select th:name="'cartoesAtribuidos[' + ${j.id} + ']'">
+                                <option value="" selected>Nenhum</option>
+                                <option value="AMARELO">Cartão Amarelo</option>
+                                <option value="VERMELHO">Cartão Vermelho</option>
+                            </select>
+                        </li>
+                    </ul>
+
+                    <h4>Jogadores de <span th:text="${equipas[jogoSelecionado.equipaIDs[1]]}"></span></h4>
+
+                    <ul>
+                        <li th:each="j : ${jogadoresEquipa2}">
+                            <span th:text="${j.nome}"></span>
+
+                            <label>Golos:</label>
+                            <input type="number" min="0" th:name="'golos[' + ${j.id} + ']'" value="0" />
+
+                            <label>Cartão:</label>
+                            <select th:name="'cartoesAtribuidos[' + ${j.id} + ']'">
+                                <option value="" selected>Nenhum</option>
+                                <option value="AMARELO">Cartão Amarelo</option>
+                                <option value="VERMELHO">Cartão Vermelho</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+
+                <button type="submit">Registar Jogo</button>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>

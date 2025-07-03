@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html th:fragment="layout (content)" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>SoccerNow</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        #container {
+            margin: auto;
+            max-width: 500px;
+        }
+
+        th {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div layout:fragment="header">
+            <h1>SoccerNow</h1>
+            <b>Sistema de buscas:</b>
+            <select onchange="location=this.value">
+                <option value="" disabled selected>Buscar por...</option>
+                <option th:value="@{/search/jogadores}">Buscar por jogadores</option>
+                <option th:value="@{/search/arbitros}">Buscar por árbitros</option>
+                <option th:value="@{/search/clubes}">Buscar por clubes</option>
+                <option th:value="@{/search/equipas}">Buscar por equipas</option>
+                <option th:value="@{/search/jogos}">Buscar por jogos</option>
+                <option th:value="@{/search/campeonatos}">Buscar por campeonatos</option>
+            </select>
+
+            <b>Registo de estatísticas:</b>
+            <button type="button" th:onclick="'window.location.href=\'' + @{/jogos/selecionar} + '\''">
+                Registar resultados de um jogo
+            </button>
+            <hr />
+        </div>
+
+        <div th:replace="${content}"></div>
+    </div>
+</body>
+
+</html>

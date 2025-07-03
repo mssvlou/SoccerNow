@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout(~{::section})}">
+
+<body>
+    <section style="display: flex; gap: 20px;">
+        <div style="flex: 1; min-width: 300px">
+            <form th:action="@{/search/jogos}" method="get">
+
+                <label><b>Estados:</b></label><br />
+                <input type="checkbox" name="estados" value="AGENDADO" /> Agendado<br />
+                <input type="checkbox" name="estados" value="CANCELADO" /> Cancelado<br />
+                <input type="checkbox" name="estados" value="EM_CURSO" /> Em curso<br />
+                <input type="checkbox" name="estados" value="CONCLUIDO" /> Concluído<br />
+
+                <hr>
+
+                <label><b>Número de golos:</b></label><br />
+                <input type="number" name="numGolos" placeholder="Número de golos" min="0"/><br />
+
+                <hr>
+
+                <label><b>Locais:</b></label><br />
+                <select name="localIDs" multiple="multiple">
+                    <option th:each="local : ${locais}" th:value="${local.id}" th:text="${local.nome}">
+                    </option>
+                </select>
+
+                <hr>
+
+                <label><b>Turnos:</b></label><br />
+                <input type="checkbox" name="turnos" value="MANHA" /> Manhã<br />
+                <input type="checkbox" name="turnos" value="TARDE" /> Tarde<br />
+                <input type="checkbox" name="turnos" value="NOITE" /> Noite<br />
+
+                <button type="submit">Aplicar filtros</button>
+            </form>
+        </div>
+
+        <div style="flex: 3"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Jogo</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${jogos.empty}">
+                    <td colspan="1">Não há jogos</td>
+                </tr>
+                <tr th:each="jogo : ${jogos}">
+                    <td th:text="${equipas[jogo.equipaIDs[0]] + ' vs ' + equipas[jogo.equipaIDs[1]]}">
+                        Equipa A vs Equipa B
+                    </td>
+                    <td th:text="${jogo.data}">Data</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+
+</html>

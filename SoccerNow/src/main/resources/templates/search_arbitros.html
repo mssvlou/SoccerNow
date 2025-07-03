@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout(~{::section})}">
+
+<body>
+    <section style="display: flex; gap: 20px;">
+        <div style="flex: 1; min-width: 300px">
+            <form th:action="@{/search/arbitros}" method="get">
+                <input type="text" name="nome" placeholder="Nome do Árbitro" />
+
+                <hr>
+
+                <input type="number" name="jogosOficiados" placeholder="Número de jogos oficiados" min="0"/>
+                <input type="number" name="cartoesMostrados" placeholder="Número de cartões mostrados" min="0"/>
+
+                <button type="submit">Aplicar filtros</button>
+            </form>
+        </div>
+
+        <div style="flex: 3"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${arbitros.empty}">
+                    <td colspan="1">Não há árbitros</td>
+                </tr>
+                <tr th:each="arbitro : ${arbitros}">
+                    <td th:text="${arbitro.nome}">Nome</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+
+</html>

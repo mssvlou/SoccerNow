@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="671.0" prefWidth="494.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ul.fc.css.soccernow.controllers.MenuController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Options">
+          <items>
+                  <MenuItem fx:id="logout" mnemonicParsing="false" onAction="#logout" text="Logout" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem fx:id="menuQuit" mnemonicParsing="false" onAction="#quit" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Sobre o SoccerNow" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+      <ScrollPane prefHeight="646.0" prefWidth="494.0">
+         <content>
+          <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="620.0" prefWidth="490.0">
+               <children>
+                  <Label layoutX="185.0" layoutY="14.0" text="SoccerNow">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="31.0" layoutY="62.0" text="Gestão de utilizadores:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="gerirUtilizadores" layoutX="33.0" layoutY="89.0" mnemonicParsing="false" onAction="#gerirUtilizadores" prefWidth="432.0" text="Verificar, atualizar e remover utilizadores">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="31.0" layoutY="134.0" text="Gestão de clubes:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="criarClube" layoutX="33.0" layoutY="165.0" mnemonicParsing="false" onAction="#criarClube" prefWidth="432.0" text="Criação de clubes">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="gerirClubes" layoutX="33.0" layoutY="206.0" mnemonicParsing="false" onAction="#gerirClubes" prefWidth="432.0" text="Verificar, atualizar e remover clubes">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="31.0" layoutY="249.0" text="Gestão de equipas:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="criarEquipa" layoutX="33.0" layoutY="280.0" mnemonicParsing="false" onAction="#criarEquipa" prefWidth="432.0" text="Criação de equipas">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="gerirEquipas" layoutX="33.0" layoutY="321.0" mnemonicParsing="false" onAction="#gerirEquipas" prefWidth="432.0" text="Verificar, atualizar e remover equipas">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="31.0" layoutY="364.0" text="Gestão de jogos:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="criarJogo" layoutX="33.0" layoutY="395.0" mnemonicParsing="false" onAction="#criarJogo" prefWidth="432.0" text="Criação de jogos">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="registarResultado" layoutX="33.0" layoutY="436.0" mnemonicParsing="false" onAction="#registarResultado" prefWidth="432.0" text="Registar o resultado de um jogo">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="31.0" layoutY="479.0" text="Gestão de campeonatos:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="criarCampeonato" layoutX="33.0" layoutY="510.0" mnemonicParsing="false" onAction="#criarCampeonato" prefWidth="432.0" text="Criação de um campeonato">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="gerirCampeonatos" layoutX="33.0" layoutY="551.0" mnemonicParsing="false" onAction="#gerirCampeonatos" prefWidth="432.0" text="Verificar, atualizar e remover campeonatos">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="cancelarJogo" layoutX="33.0" layoutY="590.0" mnemonicParsing="false" onAction="#cancelarJogo" prefWidth="432.0" text="Cancelamento de um jogo de um campeonato">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+          </AnchorPane>
+         </content>
+      </ScrollPane>
+  </children>
+</VBox>

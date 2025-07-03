@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="410.0" prefWidth="623.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ul.fc.css.soccernow.controllers.GerirUtilizadoresController">
+  <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Options">
+            <items>
+              <MenuItem fx:id="menuBack" mnemonicParsing="false" onAction="#back" text="Back" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="menuQuit" mnemonicParsing="false" onAction="#quit" text="Quit" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+
+<SplitPane dividerPositions="0.582" prefHeight="384.0" prefWidth="623.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+      <ListView fx:id="listUtilizadores" prefHeight="347.0" prefWidth="238.0" />
+      <SplitPane dividerPositions="0.17, 0.8" orientation="VERTICAL" prefHeight="410.0" prefWidth="255.0">
+         <items>
+            <VBox prefHeight="245.0" prefWidth="255.0">
+                     <children>
+                        <Label text="Nome:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nomeLabel" text=" " />
+                        <Label text="Email:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="emailLabel" text=" " />
+                     </children>
+            </VBox>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <StackPane prefHeight="250.0" prefWidth="256.0">
+                           <children>
+                              <VBox fx:id="jogadorInfo" prefHeight="238.0" prefWidth="256.0" visible="false">
+                                 <children>
+                                    <Label text="Posição:">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="posicaoLabel" text=" " />
+                                    <Label text="Nº de golos marcados:">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="golosLabel" text=" " />
+                                    <Label text="Cartões recebidos:">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="cartoesLabel" prefHeight="34.0" text=" " />
+                                    <Label text="Clube:">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="clubeLabel" text=" " />
+                                    <Label text="Equipas:">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <ListView fx:id="equipasList" prefHeight="77.0" prefWidth="256.0" />
+                                 </children>
+                              </VBox>
+                              <VBox fx:id="arbitroInfo" prefHeight="238.0" prefWidth="240.0" visible="false">
+                                 <children>
+                                    <Label text="Certificado:">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="certificadoLabel" text=" " />
+                                    <Label text="Jogos:">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <ListView fx:id="jogosList" prefHeight="200.0" prefWidth="200.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </StackPane>
+                     </content>
+                  </ScrollPane>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                  <Button fx:id="atualizar" mnemonicParsing="false" onAction="#atualizar" text="Atualizar utilizador" />
+                <Button fx:id="remover" mnemonicParsing="false" onAction="#remover" text="Remover utilizador" />
+              </items>
+            </ToolBar>
+         </items>
+      </SplitPane>
+  </items>
+</SplitPane>
+  </children>
+</VBox>

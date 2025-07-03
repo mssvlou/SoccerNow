@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout(~{::section})}">
+
+<body>
+    <section style="display: flex; gap: 20px;">
+        <div style="flex: 1; min-width: 300px">
+            <form th:action="@{/search/jogadores}" method="get">
+                <input type="text" name="nome" placeholder="Nome do Jogador" />
+
+                <hr>
+
+                <label><b>Posições:</b></label><br />
+                <input type="checkbox" name="posicoes" value="GUARDA_REDES" /> Guarda-redes</label><br />
+                <input type="checkbox" name="posicoes" value="FIXO" /> Fixo<br />
+                <input type="checkbox" name="posicoes" value="ALA" /> Ala<br />
+                <input type="checkbox" name="posicoes" value="PIVO" /> Pivô<br />
+
+                <hr>
+
+                <input type="number" name="golos" placeholder="Número de golos" min="0"/>
+                <input type="number" name="cartoes" placeholder="Número de cartões atribuídos" min="0"/>
+                <input type="number" name="jogos" placeholder="Número de jogos realizados" min="0"/>
+
+                <button type="submit">Aplicar filtros</button>
+            </form>
+        </div>
+
+        <div style="flex: 3"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${jogadores.empty}">
+                    <td colspan="1">Não há jogadores</td>
+                </tr>
+                <tr th:each="jogador : ${jogadores}">
+                    <td th:text="${jogador.nome}">Nome</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+
+</html>

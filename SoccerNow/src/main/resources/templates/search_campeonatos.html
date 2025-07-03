@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout(~{::section})}">
+
+<body>
+    <section style="display: flex; gap: 20px;">
+        <div style="flex: 1; min-width: 300px">
+            <form th:action="@{/search/campeonatos}" method="get">
+                <input type="text" name="nome" placeholder="Nome do Campeonato" />
+
+                <hr>
+
+                <label><b>Clubes:</b></label><br />
+                <select name="clubes" multiple="multiple">
+                    <option th:each="clube : ${clubes}" th:value="${clube.id}" th:text="${clube.nome}">
+                    </option>
+                </select>
+
+                <hr>
+
+                <label><b>Número de jogos concluídos:</b></label><br />
+                <input type="number" name="numJogosConcluidos" placeholder="Número de jogos concluídos" min="0"/><br />
+
+                <hr>
+
+                <label><b>Número de jogos agendados:</b></label><br />
+                <input type="number" name="numJogosAgendados" placeholder="Número de jogos agendados" min="0"/><br />
+
+                <button type="submit">Aplicar filtros</button>
+            </form>
+        </div>
+
+        <div style="flex: 3"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${campeonatos.empty}">
+                    <td colspan="1">Não há campeonatos</td>
+                </tr>
+                <tr th:each="campeonato : ${campeonatos}">
+                    <td th:text="${campeonato.nome}">Nome</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+
+</html>

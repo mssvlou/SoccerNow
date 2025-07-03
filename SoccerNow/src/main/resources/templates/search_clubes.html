@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout(~{::section})}">
+
+<body>
+    <section style="display: flex; gap: 20px;">
+        <div style="flex: 1; min-width: 300px">
+            <form th:action="@{/search/clubes}" method="get">
+                <input type="text" name="nome" placeholder="Nome do Clube" />
+                <input type="number" name="numJogadores" placeholder="Número de Jogadores" min="0"/>
+
+                <hr>
+
+                <label><b>Conquistas:</b></label><br />
+                <input type="checkbox" name="conquistas" value="PRIMEIRO_LUGAR" /> Primeiro Lugar<br />
+                <input type="checkbox" name="conquistas" value="SEGUNDO_LUGAR" /> Segundo Lugar<br />
+                <input type="checkbox" name="conquistas" value="TERCEIRO_LUGAR" /> Terceiro Lugar<br />
+
+                <hr>
+
+                <label><b>Posições Ausentes:</b></label><br />
+                <input type="checkbox" name="posicoesAusentes" value="GUARDA_REDES" /> Guarda-redes</label><br />
+                <input type="checkbox" name="posicoesAusentes" value="FIXO" /> Fixo<br />
+                <input type="checkbox" name="posicoesAusentes" value="ALA" /> Ala<br />
+                <input type="checkbox" name="posicoesAusentes" value="PIVO" /> Pivô<br />
+
+                <button type="submit">Aplicar filtros</button>
+            </form>
+        </div>
+
+        <div style="flex: 3"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${clubes.empty}">
+                    <td colspan="1">Não há clubes</td>
+                </tr>
+                <tr th:each="clube : ${clubes}">
+                    <td th:text="${clube.nome}">Nome</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+
+</html>
